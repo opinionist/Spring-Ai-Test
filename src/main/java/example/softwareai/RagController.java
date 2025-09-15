@@ -14,7 +14,7 @@ public class RagController {
 
     // 문서 저장 API
     @PostMapping("/document")
-    public String addDocument(@RequestParam String id, @RequestParam String content) {
+    public String addDocument(@RequestParam (required = false) String id, @RequestParam String content) {
         ragService.addDocument(id, content);
         return "문서 저장 완료: " + id;
     }

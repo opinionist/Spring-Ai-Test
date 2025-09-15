@@ -7,6 +7,7 @@ import org.springframework.ai.document.Document;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class RagService {
@@ -21,8 +22,11 @@ public class RagService {
 
     // 문서 저장
     public void addDocument(String id, String content) {
+
+        String docId = (id == null || id.isBlank()) ? UUID.randomUUID().toString() : UUID.nameUUIDFromBytes(id.getBytes()).toString();
+
         Document doc = Document.builder()
-                .id(id)
+                .id(docId)
                 .text(content)
                 .build();
         vectorStore.add(List.of(doc));
