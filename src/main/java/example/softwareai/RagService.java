@@ -12,17 +12,12 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class RagService {
 
     private final VectorStore vectorStore;
     private final ChatModel chatModel;
     private final VectorStoreRepository repository;
-
-    public RagService(VectorStore vectorStore, ChatModel chatModel, VectorStoreRepository repository) {
-        this.vectorStore = vectorStore;
-        this.chatModel = chatModel;
-        this.repository = repository;
-    }
 
     // 문서 저장
     public void addDocument(String id, String content) {

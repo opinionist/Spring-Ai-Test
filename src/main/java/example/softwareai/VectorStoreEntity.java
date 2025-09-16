@@ -8,6 +8,8 @@ import lombok.Setter;
 
 import java.util.UUID;
 
+@Setter
+@Getter
 @Entity
 @Table(name = "vector_store")
 @NoArgsConstructor
@@ -23,22 +25,4 @@ public class VectorStoreEntity {
     @Column(columnDefinition = "jsonb")
     private String metadata;
 
-    public UUID getId() {
-        return id;
-    }
-    public void setId(UUID id) {
-        this.id = id;
-    }
-    public String getContent() {
-        return content;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
-    public String getMetadata() {
-        return metadata;
-    }
-    public void setMetadata(String metadata) {
-        this.metadata = metadata;
-    }
 }
